@@ -1,0 +1,164 @@
+// ==========================================================================
+// Grid -- Using the Grid Layout
+// ==========================================================================
+
+
+.grid-section{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px,360px));
+  grid-template-rows: em(300px);
+  grid-column-gap: em(18px);
+  max-width: 1160px;
+  margin: em(66px) auto;
+  width: 100%;
+
+  @media(max-width: $sm){
+    justify-content: center;
+    grid-row-gap: em(20px);
+  }
+
+  p{
+    @media(max-width: $xs){
+      max-width: 320px;
+    }
+  }
+
+
+ .grid-item:nth-of-type(1){
+
+   .grid-icon{
+     display: flex;
+     border: 2px solid transparent;
+     border-radius: 50%;
+     width: 149px;
+     margin: 0 auto;
+     height: 149px;
+     background: #FEFEFE;
+     box-shadow: 0 2px 8px 1px rgba(0,0,0,0.50);
+      img{
+        background-repeat: no-repeat;
+        margin: 0 auto;
+      }
+   }
+ } // Closing 1- Grid Item
+
+ .grid-item:nth-of-type(2){
+
+   .grid-icon{
+     display: flex;
+     border: 2px solid transparent;
+     border-radius: 50%;
+     width: 149px;
+     margin: 0 auto;
+     height: 149px;
+     background: #FEFEFE;
+     box-shadow: 0 2px 8px 1px rgba(0,0,0,0.50);
+      img{
+        background-repeat: no-repeat;
+        margin: 0 auto;
+      }
+   }
+ } // Closing 2- Grid Item
+
+
+ .grid-item:nth-of-type(3){
+
+   .grid-icon{
+     display: flex;
+     border: 2px solid transparent;
+     border-radius: 50%;
+     width: 149px;
+     margin: 0 auto;
+     height: 149px;
+     background: #FEFEFE;
+     box-shadow: 0 2px 8px 1px rgba(0,0,0,0.50);
+      img{
+        background-repeat: no-repeat;
+        margin: 0 auto;
+      }
+   }
+ } // Closing 3- Grid Item
+
+} // Closing Grid Section
+
+
+ // Calculating Grid Columns
+
+
+ @media(max-width: $xl){
+
+   @for $i from 1 through $grid-col-count{
+
+    $context : grid-config($grid-col-w, $grid-col-count, $grid-gutter-w);
+    $target  : ($grid-col-w * $i) + ($grid-gutter-w) * ($i - 1);
+
+    .col-xl-#{$i}{
+      flex: 0 0 percentage($target / $context);
+      max-width: percentage($target / $context);
+    }
+
+ }
+}
+
+
+ @media(max-width: $lg){
+
+ @for $i from 1 through $grid-col-count{
+
+   $context : grid-config($grid-col-w, $grid-col-count, $grid-gutter-w);
+   $target : ($grid-col-w * $i) + ($grid-gutter-w * ($i - 1));
+
+   .col-lg-#{$i}{
+     flex: 0 0 percentage($target / $context);
+     max-width: percentage($target / $context);
+   }
+ }
+
+ } // Closing Large Breakpoint
+
+
+ @media(max-width: $md){
+
+ @for $i from 1 through $grid-col-count{
+
+   $context : grid-config($grid-col-w, $grid-col-count, $grid-gutter-w);
+   $target : ($grid-col-w * $i) + ($grid-gutter-w * ($i - 1));
+
+   .col-md-#{$i}{
+     flex: 0 0 percentage($target / $context);
+     max-width: percentage($target / $context);
+   }
+ }
+
+} // Closing Medium Breakpoint
+
+
+
+@media(max-width: $sm){
+  @for $i from 1 through $grid-col-count{
+    $context : grid-config($grid-col-w, $grid-col-count, $grid-gutter-w);
+    $target : ($grid-col-w * $i) + ($grid-gutter-w * ($i - 1));
+
+    .col-sm-#{$i}{
+      flex: 0 0 percentage($target / $context);
+      max-width: percentage($target / $context);
+    }
+  }
+}
+
+
+@media(max-width: $xs-below){
+   @for $i from 1 through $grid-col-count{
+
+     $context: grid-config($grid-col-w, $grid-col-count, $grid-gutter-w);
+     $target : ($grid-col-w * $i) + ($grid-gutter-w * ($i - 1));
+
+     .col-xs-#{$i}{
+       max-width: percentage($target / $context);
+     }
+   }
+}
+
+// [class^="col-"]{
+//
+// }

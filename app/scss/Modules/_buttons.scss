@@ -1,0 +1,43 @@
+
+
+.btn-sm-grey{
+  max-width: 140px;
+  padding: em(16px) em(45px) em(16px) em(20px);
+  font-family: GillSans;
+  font-size: em(15px);
+  text-transform: uppercase;
+  color: $mid-gray-opacity;
+  border: 2px solid #E3E4E8;
+  background-color: transparent;
+}
+
+
+.btn-add-grey{
+  font-family: Gillsans-semiBold;
+  color: #3F4044;
+  text-transform: uppercase;
+  height: 58px;
+  background-color: $mischka-dark;
+  border: 2px solid transparent;
+}
+
+
+
+.btn-lg-grey{
+  width: 270px;
+  padding: em(19px) em(80px) em(21px) em(10px);
+  font-family: GillSans;
+  font-size: em(15px);
+  text-transform: uppercase;
+  color: $mid-gray-opacity;
+  border: 2px solid #E3E4E8;
+  background-color: transparent;
+
+  span{
+    &.active{
+      color: $chenin;
+      font-family: GillSans-semiBold;
+      margin-left: em(10px);
+    }
+  }
+}

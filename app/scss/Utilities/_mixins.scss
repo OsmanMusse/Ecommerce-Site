@@ -1,0 +1,32 @@
+// ==========================================================================
+//  Mixins
+// ==========================================================================
+
+
+@mixin item-flex($width) {
+  width: $width;
+  height: 98%;
+  border: 1px solid $mischka;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @content;
+}
+
+@mixin item-label{
+width: 80px;
+height: 35px;
+background-color: $goldenrod;
+color: white;
+font-family: Gillsans-light;
+font-size: em(15px);
+transform: rotate(-90deg);
+position: absolute;
+top: 60px;
+left: -23px;
+display: flex;
+justify-content: center;
+flex-direction: column;
+text-transform: uppercase;
+@content;
+}
