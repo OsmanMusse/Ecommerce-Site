@@ -31,6 +31,12 @@
   .inner-content{
     margin-top: em(70px);
     margin-bottom: em(70px);
+    padding-left: 1.25em;
+    padding-right: 1.2em;
+
+    .container{
+      padding: 0;
+    }
 
     .button-connect{
       display: flex;
@@ -64,15 +70,31 @@
 
   .main-container{
     display: flex;
+    flex-direction: column;
+
+    @media(max-width: 923px){
+      padding-left: 1.25em;
+      padding-right: 1.25em;
+    }
+
+    .container{
+      display: flex;
+      padding: em(0px);
+    }
 
     .grid-items{
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(310px,1fr));
-      grid-template-rows: repeat(2,485px);
+      // grid-template-rows: repeat(2, 485px);
+      grid-auto-rows: 485px;
       grid-column-gap: em(22px);
       grid-row-gap: em(50px);
       width: 100%;
       margin-left: em(30px);
+
+      @media(max-width: 923px){
+        margin-left: em(0px);
+      }
 
       .grid-item{
        display: flex;
@@ -114,17 +136,50 @@
 
      } // Closing Grid-item Styles
 
-     .add-buttton{
-       display: flex;
-       width: 980px;
-
-       button{
-         display: block;
-         width: 100%;
-       }
-     }
-
     }
+
+
+         .add-buttton{
+           position: relative;
+           display: flex;
+           flex-direction: column;
+           align-self: center;
+
+           @media(max-width: 923px){
+             align-self: flex-start;
+           }
+
+           @media(max-width: 641px){
+             align-self: center;
+           }
+
+           .items-viewed{
+             display: inline-flex;
+             flex-direction: column;
+             width: max-content;
+             margin-left: em(350px);
+             color: #7C7E88;
+             position: absolute;
+             top: em(75px);
+
+             @media(max-width: 641px){
+               margin-left: em(35px);
+             }
+
+             img{
+               margin-top: em(10px);
+             }
+           }
+
+           button{
+              margin-left: em(300px);
+              margin-top: em(120px);
+              @media(max-width: 641px){
+                  margin-left: em(0px);
+              }
+
+           }
+         }
   }
 
   .black-box{
@@ -137,6 +192,10 @@
     padding-top: em(50px);
     padding-left: em(20px);
     padding-right: em(20px);
+
+    @media(max-width: 923px){
+      display: none;
+    }
 
     .contain-categories{
       display: flex;
