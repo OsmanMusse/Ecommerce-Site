@@ -1,14 +1,14 @@
 'use strict';
 
-const gulp = require('gulp'),
-concat  = require('gulp-concat'),
-uglify  = require('gulp-uglify'),
-gutil = require('gulp-util'),
-rename  = require('gulp-rename'),
-sass    = require('gulp-sass'),
-maps    = require('gulp-sourcemaps'),
-del     = require('del'),
-connect = require('gulp-connect')
+const gulp        = require('gulp');
+const browserSync = require('browser-sync').create();
+const concat      = require('gulp-concat');
+const uglify      = require('gulp-uglify');
+const gutil       = require('gulp-util');
+const rename      = require('gulp-rename');
+const sass        = require('gulp-sass');
+const maps        = require('gulp-sourcemaps');
+const del         = require('del');
 
 
 
@@ -40,11 +40,13 @@ gulp.task('compileSass', function(){
    .pipe(sass())
    .pipe(maps.write('./'))
    .pipe(gulp.dest('app/css/'))
+   .pipe(browserSync.stream())
 });
 
 gulp.task('watchFiles', function(){
   gulp.watch('app/scss/**/*.scss', ['compileSass']);
   gulp.watch('app/js/main.js' , ['minifyscripts']);
+  gulp.watch('app/index.html').on('change', browserSync.reload);
 });
 
 gulp.task('pushHtml', function(){
@@ -77,8 +79,12 @@ gulp.task('clean', function(){
 
 
 gulp.task('server', ['watchFiles'], function(){
-  connect.server({port : 3000});
-})
+
+   browserSync.init({
+     server: 'app/'
+   });
+
+});
 
 
 
@@ -86,6 +92,6 @@ gulp.task('server', ['watchFiles'], function(){
 gulp.task('build', ['minifyscripts', 'moveCss', 'pushHtml', 'pushImg', 'pushFonts']);
 
 
-gulp.task('default', ['clean'], function(){
+gulp.task('default', ['server'], function(){
   gulp.start('build');
 });
