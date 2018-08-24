@@ -302,7 +302,8 @@ template {
 h1 {
   font-size: 2.5em;
   font-family: GillSans;
-  font-weight: 100; }
+  font-weight: 100;
+  background-color: red; }
 
 h2 {
   font-size: 1.4375em;
