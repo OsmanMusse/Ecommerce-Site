@@ -5,10 +5,12 @@ const browserSync = require('browser-sync').create();
 const concat      = require('gulp-concat');
 const uglify      = require('gulp-uglify');
 const gutil       = require('gulp-util');
+const babel       = require('gulp-babel');
 const rename      = require('gulp-rename');
 const sass        = require('gulp-sass');
 const maps        = require('gulp-sourcemaps');
 const del         = require('del');
+
 
 
 
@@ -18,6 +20,7 @@ gulp.task("concatScripts", function(){
      'app/js/jquery.js',
      'app/js/main.js'
    ])
+     .pipe(babel())
      .pipe(maps.init())
      .pipe(concat('app.js'))
      .pipe(maps.write('./'))
@@ -37,8 +40,10 @@ gulp.task('minifyscripts', ['concatScripts'], function(){
 gulp.task('compileSass', function(){
    return gulp.src("app/scss/application.scss")
    .pipe(maps.init())
-   .pipe(sass())
-   .pipe(maps.write('./'))
+   .pipe(sass({
+     outputStyle: 'compressed'
+   }).on('error', sass.logError))
+   .pipe(rename('application.min.css'))
    .pipe(gulp.dest('app/css/'))
    .pipe(browserSync.stream())
 });
@@ -65,7 +70,7 @@ gulp.task('pushFonts', function(){
 });
 
 gulp.task('moveCss', function(){
-return gulp.src('app/css/application.css', { base : './app/'})
+return gulp.src('app/css/application.min.css', { base : './app/'})
        .pipe(gulp.dest('./build/'))
 
 });
@@ -92,6 +97,6 @@ gulp.task('server', ['watchFiles'], function(){
 gulp.task('build', ['minifyscripts', 'moveCss', 'pushHtml', 'pushImg', 'pushFonts']);
 
 
-gulp.task('default', ['server'], function(){
+gulp.task('default', ['clean'], function(){
   gulp.start('build');
 });
