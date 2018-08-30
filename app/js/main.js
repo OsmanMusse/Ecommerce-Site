@@ -1,16 +1,32 @@
 
 // Main Javacscript file
 
+let userBox = document.querySelector('.user-account');
+let container = document.querySelector('.ajax-container');
 
-// Creating a AJAX Request
-let xhr = new XMLHttpRequest();
-let ajaxContainer = document.querySelector('.ajaxContainer'); // Ajax Container which is used for the first request
+document.querySelector('.user-box').addEventListener('mouseenter', (event) => {
+  userBox.classList.remove( 'slideOutUp');
+  userBox.style.display = "flex";
+  userBox.classList.add('animated', 'slideInDown');
+})
 
-xhr.onreadystatechange = () => {
-  if(readyState === 4){
-     ajaxContainer.innerHTML = xhr.responseText;
-  }
-}
+container.addEventListener('mouseenter', (event) => {
+  // userBox.style.backgroundColor = "blue";
+  userBox.classList.remove('slideInDown');
+  userBox.classList.add( 'slideOutUp');
+})
 
-xhr.open('GET', '');
-xhr.send();
+// userBox.addEventListener('mouseout', (event) => {
+//   if(event.target.tagName === 'IMG' || event.target.tagName === "SPAN"){
+//     let userAccount = userAccount = userBox.parentElement.lastElementChild;
+//       userAccount.classList.remove('slideInDown');
+//       userAccount.style.display = 'flex';
+//       userAccount.classList.add('animated', 'slideInDown');
+// }
+// })
+
+
+
+// userBox.addEventListener('mouseout', (event) => {
+//   console.log("mouseout");
+// })

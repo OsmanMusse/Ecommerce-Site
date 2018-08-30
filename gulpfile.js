@@ -86,7 +86,7 @@ gulp.task('clean', function(){
 gulp.task('server', ['watchFiles'], function(){
 
    browserSync.init({
-     server: 'app/'
+     server: 'app/' 
    });
 
 });

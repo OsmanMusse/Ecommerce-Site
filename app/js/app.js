@@ -9923,17 +9923,32 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 // Main Javacscript file
 
+var userBox = document.querySelector('.user-account');
+var container = document.querySelector('.ajax-container');
 
-// Creating a AJAX Request
-var xhr = new XMLHttpRequest();
-var ajaxContainer = document.querySelector('.ajaxContainer'); // Ajax Container which is used for the first request
+document.querySelector('.user-box').addEventListener('mouseenter', function (event) {
+  userBox.classList.remove('slideOutUp');
+  userBox.style.display = "flex";
+  userBox.classList.add('animated', 'slideInDown');
+});
 
-xhr.onreadystatechange = function () {
-  if (readyState === 4) {
-    ajaxContainer.innerHTML = xhr.responseText;
-  }
-};
+container.addEventListener('mouseenter', function (event) {
+  // userBox.style.backgroundColor = "blue";
+  userBox.classList.remove('slideInDown');
+  userBox.classList.add('slideOutUp');
+});
 
-xhr.open('GET', '');
-xhr.send();
+// userBox.addEventListener('mouseout', (event) => {
+//   if(event.target.tagName === 'IMG' || event.target.tagName === "SPAN"){
+//     let userAccount = userAccount = userBox.parentElement.lastElementChild;
+//       userAccount.classList.remove('slideInDown');
+//       userAccount.style.display = 'flex';
+//       userAccount.classList.add('animated', 'slideInDown');
+// }
+// })
+
+
+// userBox.addEventListener('mouseout', (event) => {
+//   console.log("mouseout");
+// })
 //# sourceMappingURL=app.js.map
