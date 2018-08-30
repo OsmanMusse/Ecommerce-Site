@@ -63,7 +63,8 @@ header{
     }
 
     .user-account{
-      display: none;
+      display: flex;
+      flex-direction: column;
       border: 1px solid red;
       position: absolute;
       top: 73px;
@@ -72,6 +73,81 @@ header{
       height: 288px;
       z-index: 100;
       background-color: $white;
+
+      .user-inner{
+        display: flex;
+         align-items: center;
+         background-color: $iron;
+         padding: 0 em(21px);
+         height: 75px;
+
+
+
+         h3{
+           display: inline-flex;
+           margin-right: em(20px);
+         }
+
+         span{
+           font-size: em(16px);
+           text-decoration: underline;
+           margin-right: auto;
+           cursor: pointer;
+
+           &:hover{
+             color: $science-blue;
+           }
+         }
+
+
+         .cancel-icon{
+           width: 19px;
+           cursor: pointer;
+
+           &:hover{
+             .cancel{
+               fill:$science-blue;
+             }
+           }
+         }
+      } // Closing User Inner Div
+
+      // Opening User-Menu
+      .user-menu{
+        display: flex;
+        flex-direction: column;
+        padding: em(15px) em(20px);
+        .user-options{
+          display: flex;
+          border-bottom: 2px solid $iron;
+          align-items: center;
+          padding: em(20px) em(0px);
+          cursor: pointer;
+          &:hover{
+            span{
+              color: $science-blue;
+            }
+            .account-path{
+              fill:$science-blue;
+            }
+          }
+
+          &.last {
+            border-bottom: none;
+          }
+          span{
+            font-size: em(16.5px);
+            color: $cod-gray;
+            position: relative;
+            top: 2px;
+            margin-left: em(18px);
+          }
+        }
+
+      }
+
+
+
     }
 
     .user-icon{

@@ -2,6 +2,7 @@
 // Main Javacscript file
 
 let userBox = document.querySelector('.user-account');
+let cancelButton = document.querySelector('.cancel-icon');
 let container = document.querySelector('.ajax-container');
 
 document.querySelector('.user-box').addEventListener('mouseenter', (event) => {
@@ -15,6 +16,13 @@ container.addEventListener('mouseenter', (event) => {
   userBox.classList.remove('slideInDown');
   userBox.classList.add( 'slideOutUp');
 })
+
+cancelButton.addEventListener('click', () => {
+  userBox.classList.remove('slideInDown');
+  userBox.classList.add( 'slideOutUp');
+})
+
+
 
 // userBox.addEventListener('mouseout', (event) => {
 //   if(event.target.tagName === 'IMG' || event.target.tagName === "SPAN"){

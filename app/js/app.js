@@ -9924,6 +9924,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 // Main Javacscript file
 
 var userBox = document.querySelector('.user-account');
+var cancelButton = document.querySelector('.cancel-icon');
 var container = document.querySelector('.ajax-container');
 
 document.querySelector('.user-box').addEventListener('mouseenter', function (event) {
@@ -9934,6 +9935,11 @@ document.querySelector('.user-box').addEventListener('mouseenter', function (eve
 
 container.addEventListener('mouseenter', function (event) {
   // userBox.style.backgroundColor = "blue";
+  userBox.classList.remove('slideInDown');
+  userBox.classList.add('slideOutUp');
+});
+
+cancelButton.addEventListener('click', function () {
   userBox.classList.remove('slideInDown');
   userBox.classList.add('slideOutUp');
 });
