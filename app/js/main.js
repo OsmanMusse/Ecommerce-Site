@@ -4,6 +4,7 @@
 let userBox = document.querySelector('.user-account');
 let cancelButton = document.querySelector('.cancel-icon');
 let container = document.querySelector('.ajax-container');
+let navContainer = document.querySelector('.nav-left');
 
 document.querySelector('.user-box').addEventListener('mouseenter', (event) => {
   userBox.classList.remove( 'slideOutUp');
@@ -20,21 +21,45 @@ container.addEventListener('mouseenter', (event) => {
 cancelButton.addEventListener('click', () => {
   userBox.classList.remove('slideInDown');
   userBox.classList.add( 'slideOutUp');
-})
+});
 
 
 
-// userBox.addEventListener('mouseout', (event) => {
-//   if(event.target.tagName === 'IMG' || event.target.tagName === "SPAN"){
-//     let userAccount = userAccount = userBox.parentElement.lastElementChild;
-//       userAccount.classList.remove('slideInDown');
-//       userAccount.style.display = 'flex';
-//       userAccount.classList.add('animated', 'slideInDown');
-// }
-// })
+
+let navItems     = navContainer.parentElement.firstElementChild.nextElementSibling;
+let searchBox    = navContainer.firstElementChild;
+let searchIcon   = searchBox.firstElementChild;
+let checkinput   = searchBox.firstElementChild.nextElementSibling;
+let backIcon = document.createElement('img');
+let input = document.createElement('input');
+
+  navContainer.addEventListener('click', (event) => {
+
+   if(event.target === searchBox || event.target === searchIcon ){
+    if(searchBox.childElementCount === 1 || event.target.className === 'menu-icon'){
+    console.log("ev")
+    navItems.style.display = 'none';
+    searchBox.style.backgroundColor = "white";
+    // Creating new Input field to be put when find icon is clicked
+    input.type = 'text';
+    input.placeholder = 'Search for an item';
+    input.style.marginLeft = '50px';
+    searchBox.insertBefore(input, searchIcon);
+    backIcon.className = "go-back";
+    backIcon.src = "img/go-back.svg";
+    searchBox.insertBefore(backIcon, input);
+    searchIcon.style.display = 'none';
+    searchBox.style.width = "570px";
+  }
+}
+  });
 
 
-
-// userBox.addEventListener('mouseout', (event) => {
-//   console.log("mouseout");
-// })
+  backIcon.addEventListener('click', (event) => {
+    let childCount = searchBox.children;
+       searchBox.removeChild(input);
+       searchBox.removeChild(backIcon);
+       searchBox.style.backgroundColor = '';
+       searchBox.style.width = '';
+       searchIcon.style.display = 'flex';
+  })

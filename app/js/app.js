@@ -9926,6 +9926,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var userBox = document.querySelector('.user-account');
 var cancelButton = document.querySelector('.cancel-icon');
 var container = document.querySelector('.ajax-container');
+var navContainer = document.querySelector('.nav-left');
 
 document.querySelector('.user-box').addEventListener('mouseenter', function (event) {
   userBox.classList.remove('slideOutUp');
@@ -9944,17 +9945,40 @@ cancelButton.addEventListener('click', function () {
   userBox.classList.add('slideOutUp');
 });
 
-// userBox.addEventListener('mouseout', (event) => {
-//   if(event.target.tagName === 'IMG' || event.target.tagName === "SPAN"){
-//     let userAccount = userAccount = userBox.parentElement.lastElementChild;
-//       userAccount.classList.remove('slideInDown');
-//       userAccount.style.display = 'flex';
-//       userAccount.classList.add('animated', 'slideInDown');
-// }
-// })
+var navItems = navContainer.parentElement.firstElementChild.nextElementSibling;
+var searchBox = navContainer.firstElementChild;
+var searchIcon = searchBox.firstElementChild;
+var checkinput = searchBox.firstElementChild.nextElementSibling;
+var backIcon = document.createElement('img');
+var input = document.createElement('input');
 
+navContainer.addEventListener('click', function (event) {
 
-// userBox.addEventListener('mouseout', (event) => {
-//   console.log("mouseout");
-// })
+  if (event.target === searchBox || event.target === searchIcon) {
+    if (searchBox.childElementCount === 1 || event.target.className === 'menu-icon') {
+      console.log("ev");
+      navItems.style.display = 'none';
+      searchBox.style.backgroundColor = "white";
+      // Creating new Input field to be put when find icon is clicked
+      input.type = 'text';
+      input.placeholder = 'Search for an item';
+      input.style.marginLeft = '50px';
+      searchBox.insertBefore(input, searchIcon);
+      backIcon.className = "go-back";
+      backIcon.src = "img/go-back.svg";
+      searchBox.insertBefore(backIcon, input);
+      searchIcon.style.display = 'none';
+      searchBox.style.width = "570px";
+    }
+  }
+});
+
+backIcon.addEventListener('click', function (event) {
+  var childCount = searchBox.children;
+  searchBox.removeChild(input);
+  searchBox.removeChild(backIcon);
+  searchBox.style.backgroundColor = '';
+  searchBox.style.width = '';
+  searchIcon.style.display = 'flex';
+});
 //# sourceMappingURL=app.js.map
