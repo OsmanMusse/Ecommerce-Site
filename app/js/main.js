@@ -57,12 +57,69 @@ let input        = document.createElement('input');
 
   backIcon.addEventListener('click', (event) => {
     let childCount = searchBox.children;
-       searchBox.removeChild(input);
-       searchBox.removeChild(backIcon);
-       searchBox.style.backgroundColor = '';
-       searchBox.style.width = '';
-       searchIcon.style.display = 'flex';
-       navItems.style.display = 'flex';
-       input.value = '';
+    searchBox.removeChild(input);
+    searchBox.removeChild(backIcon);
+    searchBox.style.backgroundColor = '';
+    searchBox.style.width = '';
+    searchIcon.style.display = 'flex';
+    navItems.style.display = 'flex';
+    input.value = '';
+  });
 
-  })
+  let colorBox = document.querySelector('.color-selection');
+  let colorType = colorBox.lastElementChild;
+  let gridContainer = document.querySelector('.grid-items');
+  let gridItem = gridContainer.children;
+
+
+
+  colorType.addEventListener('click', (event) => {
+    if(event.target.tagName === "IMG"){
+      if(event.target.className === 'red'){
+        console.log(event.target)
+        for(let i = 0; i < gridItem.length; i += 1){
+          if(gridItem[i].className.includes('color-type-red')){
+            gridItem[i].style.display = '';
+          } else{
+            gridItem[i].style.display = 'none';
+          }
+        }
+    }
+
+    if(event.target.className === 'blue'){
+      for(let i = 0; i < gridItem.length; i += 1){
+        if(gridItem[i].className.includes('color-type-blue')){
+          gridItem[i].style.display = '';
+        } else {
+          gridItem[i].style.display = 'none';
+        }
+      }
+    }
+
+    if(event.target.className === 'purple'){
+      for(let i = 0; i < gridItem.length; i += 1){
+        if(gridItem[i].className.includes('color-type-purple')){
+          gridItem[i].style.display = '';
+        } else {
+          gridItem[i].style.display = 'none';
+          // let p = document.createElement('p');
+          // p.innerHTML = "Couldn't find a purple item, Sorry please check another color";
+          // gridContainer.appendChild(p);
+        }
+      }
+    }
+
+    if(event.target.className === 'green'){
+      for(let i = 0; i < gridItem.length; i += 1){
+        if(gridItem[i].className.includes('color-type-green')){
+          gridItem[i].style.display = '';
+        } else {
+          gridItem[i].style.display = 'none';
+        }
+      }
+    }
+
+
+
+  }
+});

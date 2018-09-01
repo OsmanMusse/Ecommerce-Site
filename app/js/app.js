@@ -9983,4 +9983,57 @@ backIcon.addEventListener('click', function (event) {
   navItems.style.display = 'flex';
   input.value = '';
 });
+
+var colorBox = document.querySelector('.color-selection');
+var colorType = colorBox.lastElementChild;
+var gridContainer = document.querySelector('.grid-items');
+var gridItem = gridContainer.children;
+
+colorType.addEventListener('click', function (event) {
+  if (event.target.tagName === "IMG") {
+    if (event.target.className === 'red') {
+      console.log(event.target);
+      for (var i = 0; i < gridItem.length; i += 1) {
+        if (gridItem[i].className.includes('color-type-red')) {
+          gridItem[i].style.display = '';
+        } else {
+          gridItem[i].style.display = 'none';
+        }
+      }
+    }
+
+    if (event.target.className === 'blue') {
+      for (var _i = 0; _i < gridItem.length; _i += 1) {
+        if (gridItem[_i].className.includes('color-type-blue')) {
+          gridItem[_i].style.display = '';
+        } else {
+          gridItem[_i].style.display = 'none';
+        }
+      }
+    }
+
+    if (event.target.className === 'purple') {
+      for (var _i2 = 0; _i2 < gridItem.length; _i2 += 1) {
+        if (gridItem[_i2].className.includes('color-type-purple')) {
+          gridItem[_i2].style.display = '';
+        } else {
+          gridItem[_i2].style.display = 'none';
+          // let p = document.createElement('p');
+          // p.innerHTML = "Couldn't find a purple item, Sorry please check another color";
+          // gridContainer.appendChild(p);
+        }
+      }
+    }
+
+    if (event.target.className === 'green') {
+      for (var _i3 = 0; _i3 < gridItem.length; _i3 += 1) {
+        if (gridItem[_i3].className.includes('color-type-green')) {
+          gridItem[_i3].style.display = '';
+        } else {
+          gridItem[_i3].style.display = 'none';
+        }
+      }
+    }
+  }
+});
 //# sourceMappingURL=app.js.map
