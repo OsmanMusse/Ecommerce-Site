@@ -30,8 +30,8 @@ let navItems     = navContainer.parentElement.firstElementChild.nextElementSibli
 let searchBox    = navContainer.firstElementChild;
 let searchIcon   = searchBox.firstElementChild;
 let checkinput   = searchBox.firstElementChild.nextElementSibling;
-let backIcon = document.createElement('img');
-let input = document.createElement('input');
+let backIcon     = document.createElement('img');
+let input        = document.createElement('input');
 
   navContainer.addEventListener('click', (event) => {
 
@@ -62,4 +62,7 @@ let input = document.createElement('input');
        searchBox.style.backgroundColor = '';
        searchBox.style.width = '';
        searchIcon.style.display = 'flex';
+       navItems.style.display = 'flex';
+       input.value = '';
+
   })

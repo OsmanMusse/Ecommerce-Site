@@ -9980,5 +9980,7 @@ backIcon.addEventListener('click', function (event) {
   searchBox.style.backgroundColor = '';
   searchBox.style.width = '';
   searchIcon.style.display = 'flex';
+  navItems.style.display = 'flex';
+  input.value = '';
 });
 //# sourceMappingURL=app.js.map
