@@ -99,6 +99,9 @@
         margin-left: em(0px);
       }
 
+      .error-msg{
+        display: none;
+      }
       .grid-item{
        display: flex;
        flex-direction: column;

@@ -9988,49 +9988,89 @@ var colorBox = document.querySelector('.color-selection');
 var colorType = colorBox.lastElementChild;
 var gridContainer = document.querySelector('.grid-items');
 var gridItem = gridContainer.children;
+var p = gridContainer.firstElementChild;
 
 colorType.addEventListener('click', function (event) {
   if (event.target.tagName === "IMG") {
-    if (event.target.className === 'red') {
-      console.log(event.target);
+
+    if (event.target.className === 'yellow') {
       for (var i = 0; i < gridItem.length; i += 1) {
-        if (gridItem[i].className.includes('color-type-red')) {
+        if (gridItem[i].className.includes('color-type-yellow')) {
           gridItem[i].style.display = '';
         } else {
           gridItem[i].style.display = 'none';
+          p.style.display = 'block';
+          p.textContent = 'No yellow items were found';
+          console.log(gridItem.childrene);
         }
       }
     }
 
-    if (event.target.className === 'blue') {
+    if (event.target.className === 'red') {
       for (var _i = 0; _i < gridItem.length; _i += 1) {
-        if (gridItem[_i].className.includes('color-type-blue')) {
+        if (gridItem[_i].className.includes('color-type-red')) {
           gridItem[_i].style.display = '';
+          if (gridItem[_i].style.display == '') {
+            console.log(gridItem[_i]);
+          }
         } else {
           gridItem[_i].style.display = 'none';
         }
       }
     }
 
-    if (event.target.className === 'purple') {
+    if (event.target.className === 'blue') {
       for (var _i2 = 0; _i2 < gridItem.length; _i2 += 1) {
-        if (gridItem[_i2].className.includes('color-type-purple')) {
+        if (gridItem[_i2].className.includes('color-type-blue')) {
           gridItem[_i2].style.display = '';
         } else {
           gridItem[_i2].style.display = 'none';
-          // let p = document.createElement('p');
-          // p.innerHTML = "Couldn't find a purple item, Sorry please check another color";
-          // gridContainer.appendChild(p);
+        }
+      }
+    }
+
+    if (event.target.className === 'purple') {
+      for (var _i3 = 0; _i3 < gridItem.length; _i3 += 1) {
+        if (gridItem[_i3].className.includes('color-type-purple')) {
+          gridItem[_i3].style.display = '';
+        } else {
+          gridItem[_i3].style.display = 'none';
+          p.style.display = 'block';
+          p.textContent = 'No purple items were found';
+        }
+      }
+    }
+
+    if (event.target.className === 'brown') {
+      for (var _i4 = 0; _i4 < gridItem.length; _i4 += 1) {
+        if (gridItem[_i4].className.includes('color-type-brown')) {
+          gridItem[_i4].style.display = '';
+        } else {
+          gridItem[_i4].style.display = 'none';
+          p.style.display = 'block';
+          p.textContent = 'No brown items were found';
+        }
+      }
+    }
+
+    if (event.target.className === 'white') {
+      for (var _i5 = 0; _i5 < gridItem.length; _i5 += 1) {
+        if (gridItem[_i5].className.includes('color-type-white')) {
+          gridItem[_i5].style.display = '';
+        } else {
+          gridItem[_i5].style.display = 'none';
+          p.style.display = 'block';
+          p.textContent = 'No white items were found';
         }
       }
     }
 
     if (event.target.className === 'green') {
-      for (var _i3 = 0; _i3 < gridItem.length; _i3 += 1) {
-        if (gridItem[_i3].className.includes('color-type-green')) {
-          gridItem[_i3].style.display = '';
+      for (var _i6 = 0; _i6 < gridItem.length; _i6 += 1) {
+        if (gridItem[_i6].className.includes('color-type-green')) {
+          gridItem[_i6].style.display = '';
         } else {
-          gridItem[_i3].style.display = 'none';
+          gridItem[_i6].style.display = 'none';
         }
       }
     }

@@ -70,18 +70,37 @@ let input        = document.createElement('input');
   let colorType = colorBox.lastElementChild;
   let gridContainer = document.querySelector('.grid-items');
   let gridItem = gridContainer.children;
+  let p = gridContainer.firstElementChild;
 
 
 
   colorType.addEventListener('click', (event) => {
     if(event.target.tagName === "IMG"){
+
+      if(event.target.className === 'yellow'){
+        for(let i = 0; i < gridItem.length; i += 1){
+          if(gridItem[i].className.includes('color-type-yellow')){
+            gridItem[i].style.display = '';
+          } else {
+            gridItem[i].style.display = 'none';
+            p.style.display = 'block';
+            p.textContent = 'No yellow items were found';
+            console.log(gridItem.childrene);
+          }
+        }
+
+      }
+
       if(event.target.className === 'red'){
-        console.log(event.target)
         for(let i = 0; i < gridItem.length; i += 1){
           if(gridItem[i].className.includes('color-type-red')){
             gridItem[i].style.display = '';
+            if(gridItem[i].style.display == ''){
+              console.log(gridItem[i]);
+            }
           } else{
             gridItem[i].style.display = 'none';
+
           }
         }
     }
@@ -96,15 +115,40 @@ let input        = document.createElement('input');
       }
     }
 
+
+
     if(event.target.className === 'purple'){
       for(let i = 0; i < gridItem.length; i += 1){
         if(gridItem[i].className.includes('color-type-purple')){
           gridItem[i].style.display = '';
         } else {
           gridItem[i].style.display = 'none';
-          // let p = document.createElement('p');
-          // p.innerHTML = "Couldn't find a purple item, Sorry please check another color";
-          // gridContainer.appendChild(p);
+          p.style.display = 'block';
+          p.textContent = 'No purple items were found';
+        }
+      }
+    }
+
+    if(event.target.className === 'brown'){
+      for(let i = 0; i < gridItem.length; i += 1){
+        if(gridItem[i].className.includes('color-type-brown')){
+          gridItem[i].style.display = '';
+        } else {
+          gridItem[i].style.display = 'none';
+          p.style.display = 'block';
+          p.textContent = 'No brown items were found';
+        }
+      }
+    }
+
+    if(event.target.className === 'white'){
+      for(let i = 0; i < gridItem.length; i += 1){
+        if(gridItem[i].className.includes('color-type-white')){
+          gridItem[i].style.display = '';
+        } else {
+          gridItem[i].style.display = 'none';
+          p.style.display = 'block';
+          p.textContent = 'No white items were found';
         }
       }
     }
