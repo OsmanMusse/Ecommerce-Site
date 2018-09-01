@@ -9989,60 +9989,83 @@ var colorType = colorBox.lastElementChild;
 var gridContainer = document.querySelector('.grid-items');
 var gridItem = gridContainer.children;
 var p = gridContainer.firstElementChild;
+var span = document.querySelector('.items-viewed');
+var count = 0;
+
+span.innerHTML = 'You\'ve viewed 6 of 6 product';
 
 colorType.addEventListener('click', function (event) {
   if (event.target.tagName === "IMG") {
 
     if (event.target.className === 'yellow') {
+      count = 0;
       for (var i = 0; i < gridItem.length; i += 1) {
         if (gridItem[i].className.includes('color-type-yellow')) {
           gridItem[i].style.display = '';
+          if (gridItem[i].style.display === '') {
+            count += 1;
+          }
         } else {
           gridItem[i].style.display = 'none';
           p.style.display = 'block';
           p.textContent = 'No yellow items were found';
           console.log(gridItem.childrene);
         }
+        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
       }
     }
 
     if (event.target.className === 'red') {
+      count = 0;
       for (var _i = 0; _i < gridItem.length; _i += 1) {
         if (gridItem[_i].className.includes('color-type-red')) {
           gridItem[_i].style.display = '';
-          if (gridItem[_i].style.display == '') {
-            console.log(gridItem[_i]);
+          if (gridItem[_i].style.display === '') {
+            count += 1;
           }
         } else {
           gridItem[_i].style.display = 'none';
         }
+        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
       }
     }
 
     if (event.target.className === 'blue') {
+      count = 0;
       for (var _i2 = 0; _i2 < gridItem.length; _i2 += 1) {
         if (gridItem[_i2].className.includes('color-type-blue')) {
           gridItem[_i2].style.display = '';
+          if (gridItem[_i2].style.display === '') {
+            count += 1;
+          }
         } else {
           gridItem[_i2].style.display = 'none';
         }
+        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
       }
     }
 
     if (event.target.className === 'purple') {
       for (var _i3 = 0; _i3 < gridItem.length; _i3 += 1) {
+        count = 0;
         if (gridItem[_i3].className.includes('color-type-purple')) {
           gridItem[_i3].style.display = '';
+          if (gridItem[_i3].style.display === '') {
+            count += 1;
+          }
         } else {
           gridItem[_i3].style.display = 'none';
           p.style.display = 'block';
           p.textContent = 'No purple items were found';
         }
+
+        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
       }
     }
 
     if (event.target.className === 'brown') {
       for (var _i4 = 0; _i4 < gridItem.length; _i4 += 1) {
+        count = 0;
         if (gridItem[_i4].className.includes('color-type-brown')) {
           gridItem[_i4].style.display = '';
         } else {
@@ -10055,6 +10078,7 @@ colorType.addEventListener('click', function (event) {
 
     if (event.target.className === 'white') {
       for (var _i5 = 0; _i5 < gridItem.length; _i5 += 1) {
+        count = 0;
         if (gridItem[_i5].className.includes('color-type-white')) {
           gridItem[_i5].style.display = '';
         } else {
@@ -10066,12 +10090,17 @@ colorType.addEventListener('click', function (event) {
     }
 
     if (event.target.className === 'green') {
+      count = 0;
       for (var _i6 = 0; _i6 < gridItem.length; _i6 += 1) {
         if (gridItem[_i6].className.includes('color-type-green')) {
           gridItem[_i6].style.display = '';
+          if (gridItem[_i6].style.display === '') {
+            count += 1;
+          }
         } else {
           gridItem[_i6].style.display = 'none';
         }
+        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
       }
     }
   }
