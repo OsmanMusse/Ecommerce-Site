@@ -10108,7 +10108,8 @@ colorType.addEventListener('click', function (event) {
 
 // Click Event when sort button is clicked a pop up menu appears
 var caretIcon = document.querySelector('.caret-icon');
+var popUpMenu = document.querySelector('.pop-menu');
 caretIcon.addEventListener('click', function (event) {
-  caretIcon.style.backgroundColor = 'red';
+  popUpMenu.style.display = 'flex';
 });
 //# sourceMappingURL=app.js.map

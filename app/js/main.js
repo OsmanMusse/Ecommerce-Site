@@ -197,6 +197,7 @@ span.innerHTML = `You've viewed 6 of 6 product`;
 
 // Click Event when sort button is clicked a pop up menu appears
 let caretIcon = document.querySelector('.caret-icon');
+let popUpMenu = document.querySelector('.pop-menu');
 caretIcon.addEventListener('click', (event) => {
-     caretIcon.style.backgroundColor = 'red';
+  popUpMenu.style.display = 'flex';
 });
