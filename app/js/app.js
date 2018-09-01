@@ -10105,4 +10105,10 @@ colorType.addEventListener('click', function (event) {
     }
   }
 });
+
+// Click Event when sort button is clicked a pop up menu appears
+var caretIcon = document.querySelector('.caret-icon');
+caretIcon.addEventListener('click', function (event) {
+  caretIcon.style.backgroundColor = 'red';
+});
 //# sourceMappingURL=app.js.map

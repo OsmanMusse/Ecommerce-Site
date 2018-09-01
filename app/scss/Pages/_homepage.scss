@@ -47,6 +47,45 @@
       justify-content: space-between;
       position: relative;
 
+      .pop-menu{
+        display: flex;
+        position: absolute;
+        top:56.5px;
+        left: -2px;
+        width:275px;
+        height: 318px;
+        background-color: #FCFCFC;
+        text-align: left;
+        box-shadow: em(1px) em(3px) em(13px) 0;
+        z-index: 10000;
+
+        ul{
+          margin: 0;
+          padding: em(15px) em(33px);
+
+          li{
+            text-transform: none;
+            font-size: em(17px);
+            margin: em(22px) em(0px);
+            color: $oslo-gray;
+            cursor: pointer;
+
+            &:hover{
+              color: $abbey;
+            }
+
+            &.active{
+              color: $abbey;
+              font-size: em(17.5px);
+              img{
+                margin-left: em(89px);
+              }
+            }
+          }
+        }
+
+      }
+
       .caret-icon{
         width: em(11.5px);
         position: absolute;

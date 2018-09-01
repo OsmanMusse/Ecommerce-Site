@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="12px" viewBox="0 0 16 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>check-mark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-14.000000, -34.000000)" fill="#4CD586" fill-rule="nonzero">
+            <g id="check-mark" transform="translate(14.438127, 34.000000)">
+                <path d="M7.0312529,11.2314348 C6.32700598,11.9296087 5.18430418,11.9296087 4.48039715,11.2314348 L0.528185189,7.31330435 C-0.17606173,6.61546739 -0.17606173,5.48261957 0.528185189,4.78478261 C1.23209222,4.0866087 2.37479403,4.0866087 3.07904095,4.78478261 L5.43378161,7.11888043 C5.61154278,7.29477174 5.90010727,7.29477174 6.07820833,7.11888043 L12.4541581,0.797913043 C13.1580651,0.0997391304 14.3007669,0.0997391304 15.0050139,0.797913043 C15.3432019,1.13318478 15.5331991,1.58807609 15.5331991,2.06217391 C15.5331991,2.53627174 15.3432019,2.99116304 15.0050139,3.32643478 L7.0312529,11.2314348 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

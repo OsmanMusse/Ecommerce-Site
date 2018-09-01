@@ -193,3 +193,10 @@ span.innerHTML = `You've viewed 6 of 6 product`;
 
   }
 });
+
+
+// Click Event when sort button is clicked a pop up menu appears
+let caretIcon = document.querySelector('.caret-icon');
+caretIcon.addEventListener('click', (event) => {
+     caretIcon.style.backgroundColor = 'red';
+});
