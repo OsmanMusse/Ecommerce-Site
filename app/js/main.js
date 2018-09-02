@@ -73,6 +73,7 @@ let input        = document.createElement('input');
   let p = gridContainer.firstElementChild;
   let span = document.querySelector('.items-viewed');
   let count = 0;
+  let totalCount = 6;
 
 span.innerHTML = `You've viewed 6 of 6 product`;
 
@@ -93,7 +94,7 @@ span.innerHTML = `You've viewed 6 of 6 product`;
             p.textContent = 'No yellow items were found';
             console.log(gridItem.childrene);
           }
-          span.innerHTML = `You've viewed ${count} of 6 product`;
+          span.innerHTML = `You've viewed ${count} of ${totalCount} product`;
         }
 
       }
@@ -109,7 +110,7 @@ span.innerHTML = `You've viewed 6 of 6 product`;
           } else{
             gridItem[i].style.display = 'none';
           }
-          span.innerHTML = `You've viewed ${count} of 6 product`;
+          span.innerHTML = `You've viewed ${count} of ${totalCount} product`;
         }
     }
 
@@ -124,7 +125,7 @@ span.innerHTML = `You've viewed 6 of 6 product`;
         } else {
           gridItem[i].style.display = 'none';
         }
-        span.innerHTML = `You've viewed ${count} of 6 product`;
+        span.innerHTML = `You've viewed ${count} of ${totalCount} product`;
       }
     }
 
@@ -144,7 +145,7 @@ span.innerHTML = `You've viewed 6 of 6 product`;
           p.textContent = 'No purple items were found';
         }
 
-        span.innerHTML = `You've viewed ${count} of 6 product`;
+        span.innerHTML = `You've viewed ${count} of ${totalCount} product`;
       }
     }
 
@@ -185,7 +186,7 @@ span.innerHTML = `You've viewed 6 of 6 product`;
         } else {
           gridItem[i].style.display = 'none';
         }
-        span.innerHTML = `You've viewed ${count} of 6 product`;
+        span.innerHTML = `You've viewed ${count} of ${totalCount} product`;
       }
     }
 
@@ -201,6 +202,8 @@ let caretDown = btnGray.firstElementChild.nextElementSibling;
 let anchor    = document.createElement('a');
 let caretUp   = document.createElement('img');
 let popUpMenu = document.querySelector('.pop-menu');
+let ul = popUpMenu.firstElementChild;
+let li = ul.children;
 
 caretDown.addEventListener('click', (event) => {
   popUpMenu.style.display = 'flex';
@@ -216,4 +219,29 @@ caretUp.addEventListener('click', (event) => {
   popUpMenu.style.display = 'none';
   btnGray.removeChild(anchor);
   btnGray.appendChild(caretDown);
+});
+
+// Make a tick appear when a specific list is selected
+let tick = document.createElement('img');
+tick.src = 'img/check-mark.svg';
+
+li[0].appendChild(tick);
+
+ul.addEventListener('click', (event) => {
+  if(event.target.tagName === 'LI'){
+
+   for(let i = 0; i < li.length; i += 1){
+     if(li[i].className === 'active'){
+       li[i].classList.remove('active');
+     }
+   }
+
+    event.target.appendChild(tick);
+
+    if(event.target.childElementCount === 1) {
+      event.target.className = 'active';
+    }
+
+
+  }
 });

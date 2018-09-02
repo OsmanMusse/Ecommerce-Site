@@ -9991,6 +9991,7 @@ var gridItem = gridContainer.children;
 var p = gridContainer.firstElementChild;
 var span = document.querySelector('.items-viewed');
 var count = 0;
+var totalCount = 6;
 
 span.innerHTML = 'You\'ve viewed 6 of 6 product';
 
@@ -10011,7 +10012,7 @@ colorType.addEventListener('click', function (event) {
           p.textContent = 'No yellow items were found';
           console.log(gridItem.childrene);
         }
-        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
+        span.innerHTML = 'You\'ve viewed ' + count + ' of ' + totalCount + ' product';
       }
     }
 
@@ -10026,7 +10027,7 @@ colorType.addEventListener('click', function (event) {
         } else {
           gridItem[_i].style.display = 'none';
         }
-        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
+        span.innerHTML = 'You\'ve viewed ' + count + ' of ' + totalCount + ' product';
       }
     }
 
@@ -10041,7 +10042,7 @@ colorType.addEventListener('click', function (event) {
         } else {
           gridItem[_i2].style.display = 'none';
         }
-        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
+        span.innerHTML = 'You\'ve viewed ' + count + ' of ' + totalCount + ' product';
       }
     }
 
@@ -10059,7 +10060,7 @@ colorType.addEventListener('click', function (event) {
           p.textContent = 'No purple items were found';
         }
 
-        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
+        span.innerHTML = 'You\'ve viewed ' + count + ' of ' + totalCount + ' product';
       }
     }
 
@@ -10100,7 +10101,7 @@ colorType.addEventListener('click', function (event) {
         } else {
           gridItem[_i6].style.display = 'none';
         }
-        span.innerHTML = 'You\'ve viewed ' + count + ' of 6 product';
+        span.innerHTML = 'You\'ve viewed ' + count + ' of ' + totalCount + ' product';
       }
     }
   }
@@ -10112,6 +10113,8 @@ var caretDown = btnGray.firstElementChild.nextElementSibling;
 var anchor = document.createElement('a');
 var caretUp = document.createElement('img');
 var popUpMenu = document.querySelector('.pop-menu');
+var ul = popUpMenu.firstElementChild;
+var li = ul.children;
 
 caretDown.addEventListener('click', function (event) {
   popUpMenu.style.display = 'flex';
@@ -10127,5 +10130,28 @@ caretUp.addEventListener('click', function (event) {
   popUpMenu.style.display = 'none';
   btnGray.removeChild(anchor);
   btnGray.appendChild(caretDown);
+});
+
+// Make a tick appear when a specific list is selected
+var tick = document.createElement('img');
+tick.src = 'img/check-mark.svg';
+
+li[0].appendChild(tick);
+
+ul.addEventListener('click', function (event) {
+  if (event.target.tagName === 'LI') {
+
+    for (var i = 0; i < li.length; i += 1) {
+      if (li[i].className === 'active') {
+        li[i].classList.remove('active');
+      }
+    }
+
+    event.target.appendChild(tick);
+
+    if (event.target.childElementCount === 1) {
+      event.target.className = 'active';
+    }
+  }
 });
 //# sourceMappingURL=app.js.map
