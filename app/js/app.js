@@ -10107,9 +10107,25 @@ colorType.addEventListener('click', function (event) {
 });
 
 // Click Event when sort button is clicked a pop up menu appears
-var caretIcon = document.querySelector('.caret-icon');
+var btnGray = document.querySelector('.btn-lg-grey');
+var caretDown = btnGray.firstElementChild.nextElementSibling;
+var anchor = document.createElement('a');
+var caretUp = document.createElement('img');
 var popUpMenu = document.querySelector('.pop-menu');
-caretIcon.addEventListener('click', function (event) {
+
+caretDown.addEventListener('click', function (event) {
   popUpMenu.style.display = 'flex';
+  btnGray.removeChild(caretDown);
+  anchor.href = '#caret-up';
+  caretUp.src = 'img/caret-up-icon.svg';
+  caretUp.className = 'caret-up';
+  anchor.appendChild(caretUp);
+  btnGray.appendChild(anchor);
+});
+
+caretUp.addEventListener('click', function (event) {
+  popUpMenu.style.display = 'none';
+  btnGray.removeChild(anchor);
+  btnGray.appendChild(caretDown);
 });
 //# sourceMappingURL=app.js.map

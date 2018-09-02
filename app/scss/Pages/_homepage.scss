@@ -86,12 +86,22 @@
 
       }
 
-      .caret-icon{
-        width: em(11.5px);
+      .caret-down{
         position: absolute;
+        width: em(11.5px);
         margin-top: 7px;
         margin-left: em(60px);
+        cursor: pointer;
       }
+
+      .caret-up{
+        position: absolute;
+        width: em(11.6px);
+        margin-top: 7px;
+        margin-left: 3.75em;
+        cursor: pointer;
+      }
+
 
       .view-list-icon{
         position: relative;

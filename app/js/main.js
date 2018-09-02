@@ -196,8 +196,24 @@ span.innerHTML = `You've viewed 6 of 6 product`;
 
 
 // Click Event when sort button is clicked a pop up menu appears
-let caretIcon = document.querySelector('.caret-icon');
+let btnGray   = document.querySelector('.btn-lg-grey');
+let caretDown = btnGray.firstElementChild.nextElementSibling;
+let anchor    = document.createElement('a');
+let caretUp   = document.createElement('img');
 let popUpMenu = document.querySelector('.pop-menu');
-caretIcon.addEventListener('click', (event) => {
+
+caretDown.addEventListener('click', (event) => {
   popUpMenu.style.display = 'flex';
+  btnGray.removeChild(caretDown);
+  anchor.href = '#caret-up';
+  caretUp.src = 'img/caret-up-icon.svg';
+  caretUp.className = 'caret-up';
+  anchor.appendChild(caretUp);
+  btnGray.appendChild(anchor);
+});
+
+caretUp.addEventListener('click', (event) => {
+  popUpMenu.style.display = 'none';
+  btnGray.removeChild(anchor);
+  btnGray.appendChild(caretDown);
 });
