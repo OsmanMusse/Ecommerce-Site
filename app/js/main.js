@@ -245,3 +245,16 @@ ul.addEventListener('click', (event) => {
 
   }
 });
+
+
+// When items is hovered at show two buttons
+let btnDiscover = document.createElement('button');
+btnDiscover.className = 'btn-md-grey';
+btnDiscover.textContent = 'Discover';
+gridContainer.addEventListener('click', (event) => {
+   if(event.target.className.includes('grid-item')){
+    let box = event.target;
+    box.appendChild(btnDiscover);
+ } // Closing Loop
+
+});

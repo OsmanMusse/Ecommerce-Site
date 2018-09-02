@@ -158,6 +158,12 @@
        border: 1px solid #E2E3E7;
        position: relative;
 
+       .hover-affect{
+        box-shadow: 3px 4px 4px 0px #C8C8C8;
+        background-color: #ffffff;
+     }
+  }
+
        .item-sale{
          @include item-label;
        }
@@ -342,5 +348,3 @@
 
 
 } // Closing Black Box
-
-  }

@@ -10154,4 +10154,15 @@ ul.addEventListener('click', function (event) {
     }
   }
 });
+
+// When items is hovered at show two buttons
+var btnDiscover = document.createElement('button');
+btnDiscover.className = 'btn-md-grey';
+btnDiscover.textContent = 'Discover';
+gridContainer.addEventListener('click', function (event) {
+  if (event.target.className.includes('grid-item')) {
+    var box = event.target;
+    box.appendChild(btnDiscover);
+  } // Closing Loop
+});
 //# sourceMappingURL=app.js.map
