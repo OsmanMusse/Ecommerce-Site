@@ -10155,14 +10155,42 @@ ul.addEventListener('click', function (event) {
   }
 });
 
-// When items is hovered at show two buttons
+// When item[products] is hovered at show two buttons
+
 var btnDiscover = document.createElement('button');
+var btnAddToCart = document.createElement('button');
+
 btnDiscover.className = 'btn-md-grey';
 btnDiscover.textContent = 'Discover';
+btnAddToCart.className = 'btn-add-black';
+btnAddToCart.textContent = 'Add To Cart';
+
+// let containContent = gridItem[1].firstElementChild.lastElementChild;
 gridContainer.addEventListener('click', function (event) {
+
+  // let findElement = event.target.className.includes('gridItem');
+
+
   if (event.target.className.includes('grid-item')) {
-    var box = event.target;
-    box.appendChild(btnDiscover);
+
+    for (var i = 0; i < gridItem.length; i++) {
+      if (event.target.firstElementChild.lastElementChild.childElementCount === 2) {
+        gridItem[i].style.height = '485px';
+      }
+      if (gridItem[i].style.height === '578px') {
+        if (event.target.firstElementChild.lastElementChild.childElementCount === 4) {
+          gridItem[i].style.height = '485px';
+          console.log('osman');
+        }
+      }
+    }
+
+    var box = event.target; // Actual Grid-Item
+    var containBox = box.firstElementChild.lastElementChild;
+    containBox.appendChild(btnDiscover);
+    containBox.appendChild(btnAddToCart);
+    gridContainer.style.gridRowGap = '8.125em';
+    box.style.height = '578px';
   } // Closing Loop
 });
 //# sourceMappingURL=app.js.map

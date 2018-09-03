@@ -247,14 +247,49 @@ ul.addEventListener('click', (event) => {
 });
 
 
-// When items is hovered at show two buttons
+// When item[products] is hovered at show two buttons
+
 let btnDiscover = document.createElement('button');
-btnDiscover.className = 'btn-md-grey';
-btnDiscover.textContent = 'Discover';
+let btnAddToCart = document.createElement('button');
+
+btnDiscover.className     = 'btn-md-grey';
+btnDiscover.textContent   = 'Discover';
+btnAddToCart.className    = 'btn-add-black';
+btnAddToCart.textContent  = 'Add To Cart';
+
+  // let containContent = gridItem[1].firstElementChild.lastElementChild;
 gridContainer.addEventListener('click', (event) => {
-   if(event.target.className.includes('grid-item')){
-    let box = event.target;
-    box.appendChild(btnDiscover);
+
+
+
+  // let findElement = event.target.className.includes('gridItem');
+
+
+
+
+
+
+
+  if(event.target.className.includes('grid-item')){
+
+    for(let i = 0; i < gridItem.length; i++){
+      if(event.target.firstElementChild.lastElementChild.childElementCount === 2) {
+        gridItem[i].style.height = '485px';
+      }
+      if(gridItem[i].style.height === '578px'){
+      if(event.target.firstElementChild.lastElementChild.childElementCount === 4) {
+        gridItem[i].style.height = '485px';
+        console.log('osman');
+      }
+      }
+    }
+
+    let box = event.target; // Actual Grid-Item
+    let containBox = box.firstElementChild.lastElementChild;
+    containBox.appendChild(btnDiscover);
+    containBox.appendChild(btnAddToCart);
+    gridContainer.style.gridRowGap = '8.125em';
+    box.style.height = '578px';
  } // Closing Loop
 
 });

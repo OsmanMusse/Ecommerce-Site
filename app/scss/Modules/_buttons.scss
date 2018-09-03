@@ -23,13 +23,15 @@
 }
 
 .btn-add-black{
+  @include flex-center;
   background-color: $tuna;
   color: $iron;
   text-transform: uppercase;
-  width: 155px;
-  margin-top: em(18px);
+  width: 154px;
+  margin: em(18px) auto em(0px) auto;
   min-height: 60px;
-  font-size: em(15px);
+  font-family: Gillsans;
+  font-size: em(16px);
 }
 
 .btn-md-grey{
