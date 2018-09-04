@@ -10180,17 +10180,23 @@ gridContainer.addEventListener('click', function (event) {
       if (gridItem[i].style.height === '578px') {
         if (event.target.firstElementChild.lastElementChild.childElementCount === 4) {
           gridItem[i].style.height = '485px';
-          console.log('osman');
         }
       }
     }
 
     var box = event.target; // Actual Grid-Item
     var containBox = box.firstElementChild.lastElementChild;
+    var lastPrevGridItem = gridContainer.lastElementChild.previousElementSibling;
+    var btnAdd = document.querySelector('.add-buttton');
     containBox.appendChild(btnDiscover);
     containBox.appendChild(btnAddToCart);
     gridContainer.style.gridRowGap = '8.125em';
     box.style.height = '578px';
+    if (lastPrevGridItem.style.height === '578px') {
+      btnAdd.style.marginTop = '100px';
+    } else {
+      btnAdd.style.marginTop = '';
+    }
   } // Closing Loop
 });
 //# sourceMappingURL=app.js.map
