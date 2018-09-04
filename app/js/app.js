@@ -9945,7 +9945,7 @@ cancelButton.addEventListener('click', function () {
   userBox.classList.add('slideOutUp');
 });
 
-var navItems = navContainer.parentElement.firstElementChild.nextElementSibling;
+var navItems = navContainer.parentElement.firstElementChild.nextElementSibling.nextElementSibling;
 var searchBox = navContainer.firstElementChild;
 var searchIcon = searchBox.firstElementChild;
 var checkinput = searchBox.firstElementChild.nextElementSibling;
@@ -9980,7 +9980,7 @@ backIcon.addEventListener('click', function (event) {
   searchBox.style.backgroundColor = '';
   searchBox.style.width = '';
   searchIcon.style.display = 'flex';
-  navItems.style.display = 'flex';
+  navItems.style.display = '';
   input.value = '';
 });
 
@@ -10165,11 +10165,7 @@ btnDiscover.textContent = 'Discover';
 btnAddToCart.className = 'btn-add-black';
 btnAddToCart.textContent = 'Add To Cart';
 
-// let containContent = gridItem[1].firstElementChild.lastElementChild;
 gridContainer.addEventListener('click', function (event) {
-
-  // let findElement = event.target.className.includes('gridItem');
-
 
   if (event.target.className.includes('grid-item')) {
 
@@ -10180,23 +10176,36 @@ gridContainer.addEventListener('click', function (event) {
       if (gridItem[i].style.height === '578px') {
         if (event.target.firstElementChild.lastElementChild.childElementCount === 4) {
           gridItem[i].style.height = '485px';
+          console.log('osman');
         }
       }
     }
 
     var box = event.target; // Actual Grid-Item
     var containBox = box.firstElementChild.lastElementChild;
-    var lastPrevGridItem = gridContainer.lastElementChild.previousElementSibling;
-    var btnAdd = document.querySelector('.add-buttton');
     containBox.appendChild(btnDiscover);
     containBox.appendChild(btnAddToCart);
     gridContainer.style.gridRowGap = '8.125em';
     box.style.height = '578px';
-    if (lastPrevGridItem.style.height === '578px') {
-      btnAdd.style.marginTop = '100px';
-    } else {
-      btnAdd.style.marginTop = '';
-    }
   } // Closing Loop
+});
+
+var navIcon = document.querySelector('.menu-box');
+navIcon.addEventListener('click', function (event) {
+
+  var slideMenu = navIcon.nextElementSibling;
+  slideMenu.style.display = 'flex';
+  slideMenu.classList.remove('animated', 'fadeOutLeft', 'fast');
+  slideMenu.classList.add('animated', 'fadeInLeft', 'fast');
+  console.log(event.target);
+});
+
+var arrowLeft = document.querySelector('.left-icon');
+
+arrowLeft.addEventListener('click', function (event) {
+
+  var slideMenu = arrowLeft.parentElement.parentElement;
+  slideMenu.classList.remove('fadeInLeft');
+  slideMenu.classList.add('fadeOutLeft');
 });
 //# sourceMappingURL=app.js.map

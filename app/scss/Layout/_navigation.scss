@@ -38,6 +38,7 @@ header{
      &.menu-box{
       @include item-flex(100px);
       position: relative;
+      cursor: pointer;
   }
 
      &.search-box{
@@ -79,7 +80,7 @@ header{
     }
 
     .menu-slide{
-      display: flex;
+      display: none;
       flex-direction: column;
       position: absolute;
       width: 350px;
@@ -95,7 +96,7 @@ header{
         padding-left: em(18px);
         padding-right: em(18px);
 
-        .arrow-icon{
+        .left-icon{
           cursor: pointer;
           &:hover{
             .arrow-path{

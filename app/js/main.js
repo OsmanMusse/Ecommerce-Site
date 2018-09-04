@@ -26,7 +26,7 @@ cancelButton.addEventListener('click', () => {
 
 
 
-let navItems     = navContainer.parentElement.firstElementChild.nextElementSibling;
+let navItems     = navContainer.parentElement.firstElementChild.nextElementSibling.nextElementSibling;
 let searchBox    = navContainer.firstElementChild;
 let searchIcon   = searchBox.firstElementChild;
 let checkinput   = searchBox.firstElementChild.nextElementSibling;
@@ -62,7 +62,7 @@ let input        = document.createElement('input');
     searchBox.style.backgroundColor = '';
     searchBox.style.width = '';
     searchIcon.style.display = 'flex';
-    navItems.style.display = 'flex';
+    navItems.style.display = '';
     input.value = '';
   });
 
@@ -257,18 +257,9 @@ btnDiscover.textContent   = 'Discover';
 btnAddToCart.className    = 'btn-add-black';
 btnAddToCart.textContent  = 'Add To Cart';
 
-  // let containContent = gridItem[1].firstElementChild.lastElementChild;
+
+
 gridContainer.addEventListener('click', (event) => {
-
-
-
-  // let findElement = event.target.className.includes('gridItem');
-
-
-
-
-
-
 
   if(event.target.className.includes('grid-item')){
 
@@ -279,23 +270,38 @@ gridContainer.addEventListener('click', (event) => {
       if(gridItem[i].style.height === '578px'){
       if(event.target.firstElementChild.lastElementChild.childElementCount === 4) {
         gridItem[i].style.height = '485px';
+        console.log('osman');
       }
       }
     }
 
     let box = event.target; // Actual Grid-Item
     let containBox = box.firstElementChild.lastElementChild;
-    let lastPrevGridItem = gridContainer.lastElementChild.previousElementSibling;
-    let btnAdd = document.querySelector('.add-buttton');
     containBox.appendChild(btnDiscover);
     containBox.appendChild(btnAddToCart);
     gridContainer.style.gridRowGap = '8.125em';
     box.style.height = '578px';
-    if(lastPrevGridItem.style.height === '578px') {
-       btnAdd.style.marginTop = '100px';
-    } else {
-      btnAdd.style.marginTop = '';
-    }
  } // Closing Loop
 
 });
+
+let navIcon = document.querySelector('.menu-box');
+navIcon.addEventListener('click', (event) => {
+
+  let slideMenu = navIcon.nextElementSibling;
+  slideMenu.style.display = 'flex';
+  slideMenu.classList.remove('animated','fadeOutLeft', 'fast');
+  slideMenu.classList.add('animated', 'fadeInLeft', 'fast');
+  console.log(event.target);
+
+});
+
+  let arrowLeft = document.querySelector('.left-icon');
+
+  arrowLeft.addEventListener('click', (event) => {
+
+    let slideMenu = arrowLeft.parentElement.parentElement;
+    slideMenu.classList.remove('fadeInLeft');
+    slideMenu.classList.add('fadeOutLeft');
+
+  })
