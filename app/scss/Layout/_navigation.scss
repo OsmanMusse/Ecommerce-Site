@@ -37,7 +37,8 @@ header{
   }
      &.menu-box{
       @include item-flex(100px);
-     }
+      position: relative;
+  }
 
      &.search-box{
       @include item-flex(76px);
@@ -68,9 +69,92 @@ header{
 
    }
 
+
+
     .menu-icon{
       height: 14px;
+      }
+
+
     }
+
+    .menu-slide{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      width: 350px;
+      left: 2px;
+      top: 75px;
+      z-index: 1000;
+
+      .header{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: #efefef;
+        padding-left: em(18px);
+        padding-right: em(18px);
+
+        .arrow-icon{
+          cursor: pointer;
+          &:hover{
+            .arrow-path{
+              fill: $science-blue;
+
+            }
+          }
+        }
+        span{
+          text-transform: uppercase;
+          margin: 0 auto;
+          padding: em(26px) em(0px);
+          color: $shark;
+          font-size: em(16.5px);
+          cursor: pointer;
+
+          &:hover{
+            color: $science-blue;
+          }
+
+        }
+      }
+
+      .inner-content{
+        display: flex;
+        flex-direction: column;
+        background-color: $white;
+        padding: em(33px) em(18px);
+        height: 540px;
+
+        .grid-item{
+          display: flex;
+          margin-bottom: em(30px);
+          span{
+            text-transform: uppercase;
+            color: $shark;
+            margin-right: auto;
+          }
+        }
+
+        .bottom-grid-item{
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: auto;
+          span{
+            color: #59595d;
+            font-size: em(16.1px);
+            font-family: Gillsans;
+            margin-bottom: em(30px);
+
+            &:last-child{
+               margin-bottom: em(0px);
+            }
+          }
+        }
+      }
+
+   } // Closing Menu Slide
 
     .user-account{
       display: none;
@@ -192,4 +276,3 @@ header{
       }
     }
   }
-}
