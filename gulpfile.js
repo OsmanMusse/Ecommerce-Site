@@ -3,6 +3,8 @@
 const gulp        = require('gulp');
 const browserSync = require('browser-sync').create();
 const concat      = require('gulp-concat');
+const concatCss   = require('gulp-concat-css');
+const cleanCSS   = require('gulp-clean-css');
 const uglify      = require('gulp-uglify');
 const gutil       = require('gulp-util');
 const babel       = require('gulp-babel');
@@ -37,16 +39,30 @@ gulp.task('minifyscripts', ['concatScripts'], function(){
 });
 
 
+gulp.task('compileCss',['compileSass'], () => {
+    return gulp.src([
+      'node_modules/animate.css/animate.css',
+      'app/css/**'
+  ])
+  .pipe(concat('application.min.css'))
+  .pipe(cleanCSS())
+  .pipe(gulp.dest('app/css/'))
+})
+
+
 gulp.task('compileSass', function(){
-   return gulp.src("app/scss/application.scss")
-   .pipe(maps.init())
+   return gulp.src([
+     'app/scss/application.scss'
+ ])
    .pipe(sass({
      outputStyle: 'compressed'
    }).on('error', sass.logError))
-   .pipe(rename('application.min.css'))
+   .pipe(rename('main.css'))
    .pipe(gulp.dest('app/css/'))
    .pipe(browserSync.stream())
 });
+
+
 
 gulp.task('watchFiles', function(){
   gulp.watch('app/scss/**/*.scss', ['compileSass']);
@@ -70,8 +86,10 @@ gulp.task('pushFonts', function(){
 });
 
 gulp.task('moveCss', function(){
-return gulp.src('app/css/application.min.css', { base : './app/'})
-       .pipe(gulp.dest('./build/'))
+return gulp.src(['app/css/application.min.css',
+                 ], { base : './app/'})
+
+ .pipe(gulp.dest('./build/'))
 
 });
 
@@ -86,7 +104,7 @@ gulp.task('clean', function(){
 gulp.task('server', ['watchFiles'], function(){
 
    browserSync.init({
-     server: 'app/' 
+     server: 'app/'
    });
 
 });
@@ -94,7 +112,14 @@ gulp.task('server', ['watchFiles'], function(){
 
 
 
-gulp.task('build', ['minifyscripts', 'moveCss', 'pushHtml', 'pushImg', 'pushFonts']);
+gulp.task('build', [
+  'moveCss',
+  'minifyscripts',
+  'pushHtml',
+  'pushImg',
+  'pushFonts'
+
+   ]);
 
 
 gulp.task('default', ['clean'], function(){

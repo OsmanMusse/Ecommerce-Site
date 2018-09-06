@@ -10159,6 +10159,7 @@ ul.addEventListener('click', function (event) {
 
 var btnDiscover = document.createElement('button');
 var btnAddToCart = document.createElement('button');
+var btnLoadMore = gridContainer.lastElementChild.previousElementSibling.nextElementSibling.parentElement.parentElement.nextElementSibling;
 
 btnDiscover.className = 'btn-md-grey';
 btnDiscover.textContent = 'Discover';
@@ -10166,7 +10167,10 @@ btnAddToCart.className = 'btn-add-black';
 btnAddToCart.textContent = 'Add To Cart';
 
 gridContainer.addEventListener('click', function (event) {
-
+  // Check if the second last item is clicked
+  if (event.target === gridContainer.lastElementChild.previousElementSibling) {
+    btnLoadMore.style.marginTop = '70px';
+  }
   if (event.target.className.includes('grid-item')) {
 
     for (var i = 0; i < gridItem.length; i++) {
@@ -10179,7 +10183,7 @@ gridContainer.addEventListener('click', function (event) {
           console.log('osman');
         }
       }
-    }
+    } // Closing Loop
 
     var box = event.target; // Actual Grid-Item
     var containBox = box.firstElementChild.lastElementChild;
@@ -10187,7 +10191,7 @@ gridContainer.addEventListener('click', function (event) {
     containBox.appendChild(btnAddToCart);
     gridContainer.style.gridRowGap = '8.125em';
     box.style.height = '578px';
-  } // Closing Loop
+  }
 });
 
 var navIcon = document.querySelector('.menu-box');

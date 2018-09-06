@@ -251,6 +251,7 @@ ul.addEventListener('click', (event) => {
 
 let btnDiscover = document.createElement('button');
 let btnAddToCart = document.createElement('button');
+let btnLoadMore = gridContainer.lastElementChild.previousElementSibling.nextElementSibling.parentElement.parentElement.nextElementSibling;
 
 btnDiscover.className     = 'btn-md-grey';
 btnDiscover.textContent   = 'Discover';
@@ -260,7 +261,10 @@ btnAddToCart.textContent  = 'Add To Cart';
 
 
 gridContainer.addEventListener('click', (event) => {
-
+  // Check if the second last item is clicked
+  if(event.target === gridContainer.lastElementChild.previousElementSibling){
+    btnLoadMore.style.marginTop = '70px';
+  }
   if(event.target.className.includes('grid-item')){
 
     for(let i = 0; i < gridItem.length; i++){
@@ -273,7 +277,9 @@ gridContainer.addEventListener('click', (event) => {
         console.log('osman');
       }
       }
-    }
+
+
+    } // Closing Loop
 
     let box = event.target; // Actual Grid-Item
     let containBox = box.firstElementChild.lastElementChild;
@@ -281,7 +287,9 @@ gridContainer.addEventListener('click', (event) => {
     containBox.appendChild(btnAddToCart);
     gridContainer.style.gridRowGap = '8.125em';
     box.style.height = '578px';
- } // Closing Loop
+ }
+
+
 
 });
 
