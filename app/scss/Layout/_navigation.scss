@@ -2,9 +2,13 @@ header{
   display: flex;
   align-items: center;
   background-color: $porcelain;
-  height: 73px;
+  height: 75px;
   border: 1px solid $athens-gray;
   font-family: GillSans, sans-serif;
+
+  @media(max-width: $xs-below){
+    padding: 0 em(10px);
+  }
 
   nav{
     display: flex;
@@ -14,6 +18,10 @@ header{
 
     .nav-left{
       display: flex;
+
+      @media(max-width: $xs-below){
+        margin-right: em(20px);
+      }
 
       span{
         font-size: em(15px);
@@ -39,25 +47,51 @@ header{
       @include item-flex(100px);
       position: relative;
       cursor: pointer;
+
+      @media(max-width: $xs-below){
+        border: none !important;
+        width: 50px;
+      }
   }
 
      &.search-box{
       @include item-flex(76px);
       cursor: pointer;
+
+      @media(max-width: $xs-below){
+        display: none;
+      }
+
       .go-back{
         width: 29px;
         height: 100%;
         margin-left: em(20px);
         cursor: pointer;
       }
+
      }
 
      &.user-box{
       @include item-flex(165px);
+
+      @media(max-width: $xs-below){
+        display: none;
+      }
+
      }
 
      &.cart-box{
        @include item-flex(120px);
+       @media(max-width: $xs-below){
+         border: none;
+         width: 30px;
+       }
+
+       span{
+         @media(max-width: $xs-below){
+           display: none;
+         }
+       }
      }
 
 
@@ -70,11 +104,13 @@ header{
 
    }
 
+    .menu-box{
 
-
-    .menu-icon{
-      height: 14px;
+      .menu-icon{
+        height: 14px;
       }
+
+    }
 
 
     }
@@ -249,9 +285,52 @@ header{
       height: 18px;
     }
 
+    .search-box-xs{
+      @include item-flex(50px){
+        display: none;
+      }
+        @media(max-width: $xs-below){
+        display: flex;
+        border:none;
+        margin-right: 15px;
+      }
+  }
+
+    .cart-box{
+      position: relative;
+
     .cart-icon{
       height: 21px;
+
+       @media(max-width: $xs-below){
+        width: 22px;
+        height: auto;
+        }
+     }
+
+    .cart-total{
+      display: flex;
+      width: 21px;
+      border-radius: 50px;
+      height: 21px;
+      background-color: $science-blue-opacity;
+      position: absolute;
+      left:20px;
+      top: 16px;
+
+      span{
+        display: inline-flex;
+        align-items: center;
+        margin: 0 auto;
+        color: $white;
+        font-family: GillSans;
+        font-size: em(13.5px);
+      }
     }
+
+  } // Closing Cart Box
+
+
 
     .nav-items{
        display: flex;
