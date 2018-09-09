@@ -12,8 +12,8 @@
   background-color: transparent;
 
   @media(max-width: $xs-below){
-    width:100%;
-    max-width: 205px;
+    width:50%;
+    max-width: 207px;
     border-left: none;
     padding-right: em(0px);
     padding-left: em(80px);
@@ -76,7 +76,7 @@
   }
 
   @media(max-width: $xs-below){
-    width: 205px;
+    width: 50%;
     font-family: GillSans-semiBold;
     font-size: em(14px);
     height: 65px;

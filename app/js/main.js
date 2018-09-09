@@ -313,32 +313,3 @@ navIcon.addEventListener('click', (event) => {
     slideMenu.classList.add('fadeOutLeft');
 
   })
-
-
-
-
-  // Board Game
-
-  class Player {
-      constructor(name, id, color, active = false) {
-        this.name   = name;
-        this.id     = id;
-        this.color  = color;
-        this.active = active;
-        this.tokens = [];
-      }
-
-      createTokens(num) {
-        const tokens = [];
-
-        for(let i =0)
-      }
-  }
-
-  class Token{
-    constructor(owner){
-       this.owner = owner;
-       this.id    = `token-${index}-${owner.id}`;
-       this.dropped = false;
-    }
-  }

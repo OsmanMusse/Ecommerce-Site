@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="6px" viewBox="0 0 12 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(-337.000000, -396.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Main-content" transform="translate(0.000000, 81.000000)">
+                <g id="Group" transform="translate(89.000000, 285.000000)">
+                    <g id="Config-panel">
+                        <g id="Sorting-menu">
+                            <g id="Sort-contain" transform="translate(39.000000, 23.000000)">
+                                <path d="M209.807433,7 L220.192567,7 C220.91101,7 221.270231,7.76489772 220.76167,8.21316336 L215.571122,12.7918767 C215.256298,13.0693744 214.743702,13.0693744 214.428878,12.7918767 L209.23833,8.21316336 C208.729769,7.76489772 209.08899,7 209.807433,7 Z" id="Shape"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
