@@ -11,6 +11,10 @@
   align-items: center;
   justify-content: center;
   @content;
+
+  @media(max-width: $xs-below){
+    width: $width;
+  }
 }
 
 @mixin flex-center{

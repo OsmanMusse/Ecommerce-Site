@@ -1,6 +1,7 @@
 
 
 .btn-sm-grey{
+  position: relative;
   max-width: 140px;
   padding: em(16px) em(45px) em(16px) em(20px);
   font-family: GillSans;
@@ -9,6 +10,17 @@
   color: $mid-gray-opacity;
   border: 2px solid #E3E4E8;
   background-color: transparent;
+
+  @media(max-width: $xs-below){
+    width:100%;
+    max-width: 205px;
+    border-left: none;
+    padding-right: em(0px);
+    padding-left: em(80px);
+    font-family: GillSans-semiBold;
+    font-size: em(14px);
+  }
+
 }
 
 
@@ -61,6 +73,15 @@
   position: relative;
   &:focus{
     outline:none;
+  }
+
+  @media(max-width: $xs-below){
+    width: 205px;
+    font-family: GillSans-semiBold;
+    font-size: em(14px);
+    height: 65px;
+    padding-top: 1em;
+    padding-bottom: 1em;
   }
 
 
