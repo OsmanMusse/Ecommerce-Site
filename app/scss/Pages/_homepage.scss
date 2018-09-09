@@ -164,7 +164,7 @@
         position: absolute;
         width: em(11.6px);
         margin-top: 5px;
-        margin-left: em(25px);
+        margin-left: em(20px);
         cursor: pointer;
       }
 
@@ -304,6 +304,10 @@
 
              @media(max-width: 641px){
                margin-left: em(35px);
+             }
+
+             @media(max-width: $xs-below){
+               margin-left: em(60px);
              }
 
              img{

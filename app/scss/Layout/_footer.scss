@@ -5,6 +5,10 @@
   padding: em(65px) em(0px);
   padding-bottom: em(0px);
 
+  @media(max-width: $xs-below){
+    display: none;
+  }
+
   .form-subscription{
     padding-bottom: em(45px);
 

@@ -9921,10 +9921,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 });
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 // Main Javacscript file
 
 var userBox = document.querySelector('.user-account');
@@ -10216,37 +10212,4 @@ arrowLeft.addEventListener('click', function (event) {
   slideMenu.classList.remove('fadeInLeft');
   slideMenu.classList.add('fadeOutLeft');
 });
-
-// Board Game
-
-var Player = function () {
-  function Player(name, id, color) {
-    var active = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-
-    _classCallCheck(this, Player);
-
-    this.name = name;
-    this.id = id;
-    this.color = color;
-    this.active = active;
-    this.tokens = [];
-  }
-
-  _createClass(Player, [{
-    key: 'createTokens',
-    value: function createTokens(num) {
-      var tokens = [];
-    }
-  }]);
-
-  return Player;
-}();
-
-var Token = function Token(owner) {
-  _classCallCheck(this, Token);
-
-  this.owner = owner;
-  this.id = 'token-' + index + '-' + owner.id;
-  this.dropped = false;
-};
 //# sourceMappingURL=app.js.map
